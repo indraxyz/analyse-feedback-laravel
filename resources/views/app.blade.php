@@ -1,3 +1,7 @@
+{{--
+    Laravel app: open this page via your PHP server (APP_URL), e.g. http://localhost:8000
+    Do NOT open the Vite dev server URL (e.g. http://localhost:5173) to view the app — that shows the asset server page only.
+--}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
     <head>
@@ -19,5 +23,10 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+        @if (config('app.debug'))
+            <div class="fixed bottom-0 right-0 z-50 rounded-tl bg-slate-800 px-2 py-1 text-xs text-slate-300" aria-hidden="true">
+                App: {{ config('app.url') }} · Vite is for assets only
+            </div>
+        @endif
     </body>
 </html>
