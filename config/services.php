@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    'anthropic' => [
+        'key' => env('ANTHROPIC_API_KEY'),
+        'model' => env('ANTHROPIC_MODEL', 'claude-sonnet-4-6'),
+        'verify_ssl' => env('HTTP_VERIFY_SSL', true),
+    ],
+
+    'rate_limit' => [
+        'analyse_feedback_max' => (int) env('RATE_LIMIT_MAX', 60),
+        'analyse_feedback_decay_minutes' => 1,
+    ],
+
 ];
